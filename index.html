@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Calculadora de IMC e Consumo Diário de Água</title>
+</head>
+<body>
+    <form onsubmit="return calcular();">
+        <input type="text" id="peso" placeholder="Peso (kg)">
+        <input type="text" id="altura" placeholder="Altura (cm)">
+        <input type="submit" value="Calcular">
+    </form>
+
+    <table>
+        <tr>
+            <th>Peso (kg)</th>
+            <th>Altura (cm)</th>
+            <th>Índice de Massa Corporal</th>
+            <th>Consumo diário de água (litros)</th>
+        </tr>
+        <tr>
+            <td id="peso_na_tabela"></td>
+            <td id="altura_na_tabela"></td>
+            <td id="imc"></td>
+            <td id="consumo_de_agua"></td>
+        </tr>
+    </table>
+
+    <script src="js/calcula.js"></script>
+</body>
+</html>
