@@ -2,30 +2,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <title>Calculadora de IMC e Consumo Diário de Água</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+    <title>Calculadora de IMC, TMB e Consumo Diário de Água</title>
 </head>
 <body>
-    <form onsubmit="return calcular();">
-        <input type="text" id="peso" placeholder="Peso (kg)">
-        <input type="text" id="altura" placeholder="Altura (cm)">
-        <input type="submit" value="Calcular">
-    </form>
-
-    <table>
-        <tr>
-            <th>Peso (kg)</th>
-            <th>Altura (cm)</th>
-            <th>Índice de Massa Corporal</th>
-            <th>Consumo diário de água (litros)</th>
-        </tr>
-        <tr>
-            <td id="peso_na_tabela"></td>
-            <td id="altura_na_tabela"></td>
-            <td id="imc"></td>
-            <td id="consumo_de_agua"></td>
-        </tr>
-    </table>
-
-    <script src="js/calcula.js"></script>
+    <div class="container mt-5">
+        <h1>Calculadora de IMC, TMB e Água</h1>
+        <form onsubmit="return calcular();">
+            <div class="mb-3">
+                <label for="peso" class="form-label">Peso (kg):</label>
+                <input type="text" class="form-control" id="peso" placeholder="Digite seu peso em kg">
+            </div>
+            <div class="mb-3">
+                <label for="altura" class="form-label">Altura (cm):</label>
+                <input type="text" class="form-control" id="altura" placeholder="Digite sua altura em cm">
+            </div>
+            <div class="mb-3">
+                <label for="idade" class="form-label">Idade (anos):</label>
+                <input type="text" class="form-control" id="idade" placeholder="Digite sua idade em anos">
+            </div>
+            <div class="mb-3">
+                <label for="sexo" class="form-label">Sexo:</label>
+                <select class="form-select" id="sexo">
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <span class='oi oi-calculator' title='Calcular' aria-hidden='true'></span> Calcular
+            </button>
+        </form>
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Peso (kg)</th>
+                    <th>Altura (cm)</th>
+                    <th>Índice de Massa Corporal</th>
+                    <th>Consumo diário de água (litros)</th>
+                    <th>Taxa de Metabolismo Basal (calorias)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="peso_na_tabela"></td>
+                    <td id="altura_na_tabela"></td>
+                    <td id="imc"></td>
+                    <td id="consumo_de_agua"></td>
+                    <td id="tmb"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="js/index.js"></script>
 </body>
 </html>
