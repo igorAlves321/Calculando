@@ -1,4 +1,32 @@
 
+function validarEntrada(peso, altura, idade) {
+    var erros = [];
+    if (!peso || isNaN(peso) || peso <= 0) {
+        erros.push("Peso inválido");
+    }
+    if (!altura || isNaN(altura) || altura <= 0) {
+        erros.push("Altura inválida");
+    }
+    if (!idade || isNaN(idade) || idade <= 0) {
+        erros.push("Idade inválida");
+    }
+    return erros;
+}
+
+function calcularIMC(peso, altura_m) {
+    return peso / (altura_m * altura_m);
+}
+
+function calcularAgua(peso) {
+    return peso * 0.05;
+}
+
+function calcularTMB(peso, altura, idade, sexo) {
+    return sexo === "masculino" ? 
+           10 * peso + 6.25 * altura - 5 * idade + 5 :
+           10 * peso + 6.25 * altura - 5 * idade - 161;
+}
+
 function calcular() {
     var peso = parseFloat(document.getElementById("peso").value);
     var altura = parseFloat(document.getElementById("altura").value);
@@ -6,15 +34,15 @@ function calcular() {
     var idade = parseFloat(document.getElementById("idade").value);
     var sexo = document.getElementById("sexo").value;
 
-    var imc = peso / (altura_m * altura_m);
-    var consumo_de_agua = peso * 0.05; // 50 ml per kg
-
-    var tmb;
-    if (sexo === "masculino") {
-        tmb = 10 * peso + 6.25 * altura - 5 * idade + 5;
-    } else {
-        tmb = 10 * peso + 6.25 * altura - 5 * idade - 161;
+    var erros = validarEntrada(peso, altura, idade);
+    if (erros.length > 0) {
+        alert("Erros:\n" + erros.join("\n"));
+        return false;
     }
+
+    var imc = calcularIMC(peso, altura_m);
+    var consumo_de_agua = calcularAgua(peso);
+    var tmb = calcularTMB(peso, altura, idade, sexo);
 
     document.getElementById("peso_na_tabela").innerHTML = peso.toFixed(2) + " kg";
     document.getElementById("altura_na_tabela").innerHTML = altura.toFixed(2) + " cm";
