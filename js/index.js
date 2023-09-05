@@ -107,7 +107,7 @@ function calcular() {
     document.getElementById("atividade").value = "1.2"; // valor padrão para 'Sedentário'
 }
 
-// Evento de submissão do formulário
+
 document.querySelector("form").onsubmit = function(event) {
   event.preventDefault();
   calcular();
