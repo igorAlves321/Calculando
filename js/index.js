@@ -41,7 +41,6 @@ function calcular() {
     var erros = validarEntrada(peso, altura, idade);
     if (erros.length > 0) {
         alert("Erros:\\n" + erros.join("\\n"));
-        return false;
     }
 
     var imc = calcularIMC(peso, altura_m);
@@ -71,6 +70,14 @@ function calcular() {
     document.getElementById("consumo_de_agua").innerHTML = "Você deve tomar " + consumo_de_agua.toFixed(2) + " litros de água por dia";
     document.getElementById("tmb").innerHTML = tmb.toFixed(2) + " calorias";
     document.getElementById("calorias_totais").innerHTML = calorias_totais.toFixed(2) + " calorias";
+
+    // Limpar os campos do formulário após o cálculo ou erros
+    document.getElementById("peso").value = "";
+    document.getElementById("altura").value = "";
+    document.getElementById("idade").value = "";
+    document.getElementById("masculino").checked = false;
+    document.getElementById("feminino").checked = false;
+    document.getElementById("atividade").value = "1.2"; // valor padrão para 'Sedentário'
 }
 
 document.querySelector("form").onsubmit = function(event) {

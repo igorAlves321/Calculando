@@ -5,7 +5,7 @@
     <title>Calculando</title>
 </head>
 <body>
-<h2>Calculadora de IMC e TMB</h2>
+    <h2>Calculadora de IMC e TMB</h2>
     <form>
         <label for="peso" title="Informe seu peso em quilogramas.">Peso (em kg):</label>
         <input type="text" id="peso"><br>
@@ -16,7 +16,7 @@
         <label for="idade" title="Informe sua idade em anos.">Idade:</label>
         <input type="text" id="idade"><br>
 
-        <label for="sexo" title="Escolha o seu gênero.">Sexo:</label>
+        <label title="Escolha o seu gênero.">Sexo:</label>
         <input type="radio" id="masculino" name="sexo" value="masculino">
         <label for="masculino">Masculino</label>
         <input type="radio" id="feminino" name="sexo" value="feminino">
@@ -35,7 +35,26 @@
     </form>
 
     <table title="Esta tabela mostrará os resultados dos cálculos.">
-        <!-- restante da tabela aqui -->
+        <thead>
+            <tr>
+                <th>Peso</th>
+                <th>Altura</th>
+                <th>IMC</th>
+                <th>Consumo de Água</th>
+                <th>TMB</th>
+                <th>Calorias Totais</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="peso_na_tabela"></td>
+                <td id="altura_na_tabela"></td>
+                <td id="imc"></td>
+                <td id="consumo_de_agua"></td>
+                <td id="tmb"></td>
+                <td id="calorias_totais"></td>
+            </tr>
+        </tbody>
     </table>
 
 <script src="js/index.js"></script>
