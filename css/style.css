@@ -1,6 +1,7 @@
 /* Estilo base */
 body {
     font-family: Arial, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 /* Tema claro */
@@ -53,4 +54,9 @@ body {
     .container-fluid {
         padding: 10px;
     }
+}
+
+/* Animações */
+#resultsTable {
+    transition: opacity 0.5s ease-in-out;
 }

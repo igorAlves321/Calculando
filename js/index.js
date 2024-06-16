@@ -121,7 +121,10 @@ function calcular() {
         document.getElementById("calorias_totais").innerHTML = calorias_totais.toFixed(2) + " calorias";
 
         // Mostrar a tabela
-        document.getElementById("resultsTable").style.display = "table";
+        const resultsTable = document.getElementById("resultsTable");
+        resultsTable.style.display = "table";
+        resultsTable.style.opacity = 0;
+        setTimeout(() => resultsTable.style.opacity = 1, 0);
     }
 
     // Limpar os campos do formulário após o cálculo ou erros
