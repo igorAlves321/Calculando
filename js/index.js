@@ -10,7 +10,7 @@ function removeInvalidField(fieldId) {
 
 // Função para validar os dados de entrada
 function validarEntrada(peso, altura, idade) {
-    var erros = [];
+    let erros = [];
     if (!peso || isNaN(peso) || peso <= 0) {
         erros.push("Peso inválido");
         setInvalidField("peso");
@@ -40,7 +40,7 @@ function calcularIMC(peso, altura_m) {
 }
 
 function calcularAgua(peso) {
-    return peso * 0.05;
+    return peso * 0.035;
 }
 
 function calcularTMB(peso, altura, idade, sexo) {
@@ -55,24 +55,23 @@ function calcularCaloriasTotais(tmb, atividade) {
 
 // Função principal para calcular e mostrar os resultados
 function calcular() {
-    var peso = parseFloat(document.getElementById("peso").value);
-    var altura = parseFloat(document.getElementById("altura").value);
-    var altura_m = altura / 100;
-    var idade = parseFloat(document.getElementById("idade").value);
-    var sexo = document.querySelector('input[name="sexo"]:checked').value;
-    var atividade = document.getElementById("atividade").value;
+    const peso = parseFloat(document.getElementById("peso").value);
+    const altura = parseFloat(document.getElementById("altura").value);
+    const altura_m = altura / 100;
+    const idade = parseFloat(document.getElementById("idade").value);
+    const sexo = document.querySelector('input[name="sexo"]:checked').value;
+    const atividade = document.getElementById("atividade").value;
 
-    var erros = validarEntrada(peso, altura, idade);
+    const erros = validarEntrada(peso, altura, idade);
     if (erros.length > 0) {
-        alert("Erros:\\n" + erros.join("\\n"));
+        alert("Erros:\n" + erros.join("\n"));
     } else {
-        var imc = calcularIMC(peso, altura_m);
-        var consumo_de_agua = calcularAgua(peso);
-        var tmb = calcularTMB(peso, altura, idade, sexo);
-        var calorias_totais = calcularCaloriasTotais(tmb, atividade);
+        const imc = calcularIMC(peso, altura_m);
+        const consumo_de_agua = calcularAgua(peso);
+        const tmb = calcularTMB(peso, altura, idade, sexo);
+        const calorias_totais = calcularCaloriasTotais(tmb, atividade);
 
-        // Classificação do IMC
-        var imc_classification = "";
+        let imc_classification = "";
         if (imc < 18.5) {
             imc_classification = " (Abaixo do peso)";
         } else if (imc >= 18.5 && imc < 24.9) {
@@ -107,9 +106,8 @@ function calcular() {
     document.getElementById("atividade").value = "1.2"; // valor padrão para 'Sedentário'
 }
 
-
 document.querySelector("form").onsubmit = function(event) {
-  event.preventDefault();
-  calcular();
-  return false;
+    event.preventDefault();
+    calcular();
+    return false;
 };
