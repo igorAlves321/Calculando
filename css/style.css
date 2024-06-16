@@ -79,3 +79,10 @@ body {
 #resultsTable {
     transition: opacity 0.5s ease-in-out;
 }
+
+/* Foco nos campos de formulário */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    transition: box-shadow 0.3s ease-in-out;
+}
