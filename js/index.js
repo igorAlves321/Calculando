@@ -1,3 +1,30 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const themeToggleBtn = document.getElementById('toggle-theme');
+    const body = document.body;
+
+    // Carregar o tema salvo no localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.remove('light-theme', 'dark-theme');
+        body.classList.add(savedTheme);
+    } else {
+        body.classList.add('light-theme');
+    }
+
+    // Alternar o tema
+    themeToggleBtn.addEventListener('click', function () {
+        if (body.classList.contains('light-theme')) {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark-theme');
+        } else {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            localStorage.setItem('theme', 'light-theme');
+        }
+    });
+});
+
 // Função para definir um campo como inválido
 function setInvalidField(fieldId) {
     document.getElementById(fieldId).classList.add("is-invalid");

@@ -1,0 +1,56 @@
+/* Estilo base */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Tema claro */
+.light-theme {
+    background-color: white;
+    color: black;
+}
+
+.light-theme .form-control {
+    background-color: white;
+    color: black;
+}
+
+.light-theme .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.light-theme .table {
+    background-color: white;
+    color: black;
+}
+
+/* Tema escuro */
+.dark-theme {
+    background-color: #333;
+    color: white;
+}
+
+.dark-theme .form-control {
+    background-color: #444;
+    color: white;
+}
+
+.dark-theme .btn-primary {
+    background-color: #0062cc;
+    border-color: #005cbf;
+}
+
+.dark-theme .table {
+    background-color: #444;
+    color: white;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .form-label, .form-control, .table {
+        font-size: 12px;
+    }
+    .container-fluid {
+        padding: 10px;
+    }
+}
